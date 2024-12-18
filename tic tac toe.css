@@ -1,0 +1,194 @@
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Background and general styling */
+body {
+    background-color: #3f51b5; /* Vibrant purple-blue */
+    font-family: 'Arial', sans-serif;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    flex-direction: column;
+}
+
+/* Header */
+#header {
+    font-size: 30px;
+    font-weight: bold;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 30px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    text-shadow: 2px 2px 10px rgba(255, 255, 255, 0.6);
+    animation: headerAnimation 1.5s ease-out infinite alternate;
+}
+
+@keyframes headerAnimation {
+    0% {
+        text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
+    }
+    50% {
+        text-shadow: 0px 0px 40px rgba(255, 255, 255, 1);
+    }
+    100% {
+        text-shadow: 0px 0px 20px rgba(255, 255, 255, 0.6);
+    }
+}
+
+/* Game container */
+#game {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background: linear-gradient(45deg, #673ab7, #ff5722);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+    animation: gameFadeIn 1s ease-out;
+}
+
+/* Fade-in animation for the game */
+@keyframes gameFadeIn {
+    0% {
+        opacity: 0;
+        transform: scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* Rows */
+#row1, #row2, #row3 {
+    display: flex;
+    gap: 5px;
+    animation: rowAnimation 1s ease-out;
+}
+
+/* Row animation with delay for each row */
+@keyframes rowAnimation {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+#row1 {
+    animation-delay: 0.2s;
+}
+
+#row2 {
+    animation-delay: 0.4s;
+}
+
+#row3 {
+    animation-delay: 0.6s;
+}
+
+/* Blocks for each cell */
+.block {
+    background-color: #fff;
+    border: 2px solid #673ab7;
+    height: 80px;
+    width: 80px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 32px;
+    font-weight: bold;
+    color: #3f51b5;
+    cursor: pointer;
+    transition: transform 0.2s ease, background-color 0.3s ease, box-shadow 0.3s ease, filter 0.2s ease;
+    border-radius: 10px;
+}
+
+/* Hover effect for blocks */
+.block:hover {
+    background-color: #ffeb3b;
+    transform: scale(1.1);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+    filter: brightness(1.2);
+}
+
+/* Block click animation */
+.block:active {
+    transform: scale(0.9);
+}
+
+/* Animation for block appearance */
+@keyframes blockAppear {
+    0% {
+        transform: scale(0);
+        opacity: 0;
+    }
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Game block animation on load */
+.block {
+    animation: blockAppear 0.3s ease-out;
+}
+
+/* Winning animation */
+.winner {
+    background-color: #4caf50;
+    box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    animation: winnerAnimation 1s ease-out infinite alternate;
+}
+
+@keyframes winnerAnimation {
+    0% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    }
+    50% {
+        transform: scale(1.1);
+        box-shadow: 0 0 20px rgba(0, 255, 0, 0.7);
+    }
+    100% {
+        transform: scale(1);
+        box-shadow: 0 0 15px rgba(0, 255, 0, 0.5);
+    }
+}
+
+/* Fading effect on inactive blocks */
+.inactive {
+    opacity: 0.6;
+}
+
+/* Animation for button hover */
+#startButton {
+    font-size: 20px;
+    padding: 10px 20px;
+    background-color: #ff5722;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+#startButton:hover {
+    background-color: #ff9800;
+    transform: scale(1.1);
+}
+
+#startButton:active {
+    transform: scale(0.95);
+}
